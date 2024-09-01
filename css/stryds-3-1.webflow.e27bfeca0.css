@@ -3863,7 +3863,7 @@ button:hover {
 
 /* Radio Button Text Alignment */
 .radio-group label::after {
-  content: '';
+ 
   position: absolute;
   top: 50%;
   left: 50%;
