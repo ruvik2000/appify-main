@@ -786,7 +786,7 @@
                   class=""
                 />
               </a>
-              <a>
+              <a href="The YouTube button on the site isn’t linked to https://www.youtube.com/@APPIFYDEV" target="_blank">
                 <img
                   src="images/Youtube.svg"
                   loading="lazy"
@@ -1397,6 +1397,74 @@ document.addEventListener('scroll', function() {
     textElement.style.backgroundPosition = `${backgroundPosition}% 0`;
 });
 
+</script>
+
+
+<script>
+
+  // a function to check the opacity of the navigation bar and apply pointer events to the sticky button: -- this is a mobile fix
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the navigation element by its class or ID
+    const navigationBar = document.querySelector('.navigation'); // Replace with the correct selector
+
+    // Function to check opacity and update pointer events
+    function updateNavigationPointerEvents() {
+        // Get the computed style of the navigation bar
+        const navOpacity = window.getComputedStyle(navigationBar).opacity;
+
+        // Check if opacity is zero
+        if (parseFloat(navOpacity) === 0) {
+            // Set pointer-events to none to allow clicks to pass through
+            navigationBar.style.pointerEvents = 'none';
+        } else {
+            // Reset pointer-events to auto if opacity is not zero
+            navigationBar.style.pointerEvents = 'auto';
+        }
+    }
+
+    // Run the function initially
+    updateNavigationPointerEvents();
+
+    // Optionally, you can add a mutation observer if opacity changes dynamically
+    const observer = new MutationObserver(updateNavigationPointerEvents);
+    observer.observe(navigationBar, { attributes: true, attributeFilter: ['style'] });
+});
+
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the navigation element and sticky button element
+    const navigationBar = document.querySelector('.navigation'); // Replace with the correct selector
+    const stickyButton = document.getElementById('sticky-icon'); // Replace with the correct ID
+
+    // Function to check opacity and update pointer events and button visibility
+    function updateNavigationPointerEvents() {
+        // Get the computed style of the navigation bar
+        const navOpacity = window.getComputedStyle(navigationBar).opacity;
+
+        // Check if opacity is zero
+        if (parseFloat(navOpacity) === 0) {
+            // Set pointer-events to none to allow clicks to pass through
+            navigationBar.style.pointerEvents = 'none';
+            // Show the sticky button
+            stickyButton.style.display = 'flex';
+        } else {
+            // Reset pointer-events to auto if opacity is not zero
+            navigationBar.style.pointerEvents = 'auto';
+            // Hide the sticky button
+            stickyButton.style.display = 'none';
+        }
+    }
+
+    // Run the function initially
+    updateNavigationPointerEvents();
+
+    // Use a mutation observer if opacity changes dynamically
+    const observer = new MutationObserver(updateNavigationPointerEvents);
+    observer.observe(navigationBar, { attributes: true, attributeFilter: ['style'] });
+});
 </script>
 
   </body>

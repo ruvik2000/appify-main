@@ -3912,7 +3912,7 @@ button:hover {
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 2000;
+  z-index: 9999;
 }
 
 #sticky-icon img {
@@ -3922,6 +3922,13 @@ button:hover {
 
 #sticky-icon {
   pointer-events: auto;
+}
+
+@media screen and (max-width: 767px) {
+  #sticky-icon {
+    pointer-events: auto!important;
+    z-index:  9999;
+  }
 }
 
 /* Popup styling */
@@ -4013,7 +4020,15 @@ button:hover {
   backdrop-filter: blur(10px); 
 }
 
+@media screen and (max-width: 767px) {
+  #popup {
+      width: 90%;
+  }
+  .popup-content {
+    flex-direction: column;
+  }
 
+}
 
 
 
