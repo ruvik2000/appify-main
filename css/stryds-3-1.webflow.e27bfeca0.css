@@ -4071,6 +4071,8 @@ button:hover {
   margin: 0; /* Remove any margin */
   padding: 0; /* Remove any padding */
   line-height: 1.2; /* Adjust line height for spacing */
+
+  text-align: left;
 }
 
 /* .box-content p {
@@ -4141,40 +4143,41 @@ button:hover {
       padding: 5px 10px; /* Adjust padding for smaller screens */
       border-radius: 8px; /* Slightly smaller radius */
       animation: floatTiltMobile 7s ease-in-out infinite; /* Slower animation */
+      width: 160px;
   }
 
   .box-flag {
-      width: 25px; /* Smaller flag size */
-      height: 25px;
+      width: 15px; /* Smaller flag size */
+      height: 15px;
   }
 
   .box-location {
-      font-size: 14px; /* Smaller text size */
+      font-size: 12px; /* Smaller text size */
   }
 
   .box-time,
   .box-date {
-      font-size: 12px; /* Smaller text size */
+      font-size: 10px; /* Smaller text size */
   }
 
   .sl-box{
     bottom: 16% !important;
-    right: 10% !important;
+    right: 6% !important;
   }
 
   .india-box{
-    bottom: 4% !important;
-    left: 10% !important;
+    bottom: 10% !important;
+    left: 6% !important;
   }
 
   .aus-box{
-    top: 17% !important;
-    left: 10% !important;
+    top: 15% !important;
+    left: 6% !important;
   }
 
   .usa-box{
-    top: 4% !important;
-    right: 10% !important;
+    top: 9% !important;
+    right: 6% !important;
   }
 }
 
