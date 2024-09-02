@@ -4045,16 +4045,17 @@ button:hover {
 }
 
 .floating-box {
+  align-items: center;
   display: flex;
   position: absolute;
   background-color: rgb(255 255 255 / 50%); /* Slightly transparent background */
   pointer-events: auto; /* Allows interaction with the floating boxes */
   animation: float 5s ease-in-out infinite; /* Animation applied */
 
-  padding: 10px 15px;
+  padding: 7px 10px;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  gap: 10px;
+  gap: 6px;
 }
 
 .box-content {
@@ -4066,6 +4067,10 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+
+  margin: 0; /* Remove any margin */
+  padding: 0; /* Remove any padding */
+  line-height: 1.2; /* Adjust line height for spacing */
 }
 
 /* .box-content p {
@@ -4073,8 +4078,8 @@ button:hover {
 } */
 
 .box-flag {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   border-radius: 8px;
   transform: rotate(-10deg); /* Slight tilt to match design */
 }
