@@ -1384,9 +1384,64 @@ document.addEventListener('DOMContentLoaded', function () {
 //     textElement.style.backgroundPosition = `${backgroundPosition}% 0`;
 // });
 
+// ------------- this is the working code -------------
+// document.addEventListener('scroll', function() {
+//     const heroTextItem = document.querySelector('.hero-txt-item-4');
+//     const textElement = heroTextItem.querySelector('.highlight-text');
+//     const windowHeight = window.innerHeight;
+//     const elementTop = heroTextItem.getBoundingClientRect().top;
+//     const elementHeight = heroTextItem.getBoundingClientRect().height;
+
+//     // Calculate how far the element is within the viewport
+//     let scrollPercentage = (windowHeight - elementTop) / windowHeight;
+
+//     // Clamp the scroll percentage between 0 and 1
+//     scrollPercentage = Math.min(Math.max(scrollPercentage, 0), 1);
+
+//     // Use the scroll percentage to control the highlight speed
+//     const backgroundPosition = 100 - (scrollPercentage * 180); // Change start to 100 for left to right
+//     textElement.style.backgroundPosition = `${backgroundPosition}% 0`;
+// });
+
+// document.addEventListener('scroll', function() {
+//     const heroTextItem = document.querySelector('.hero-txt-item-4');
+//     const textElement = heroTextItem.querySelector('.highlight-text');
+
+//     // Check if the outer div has an opacity greater than 0
+//     const heroOpacity = parseFloat(window.getComputedStyle(heroTextItem).opacity);
+//     if (heroOpacity <= 0) {
+//         return; // Exit if the opacity is 0 or less
+//     }
+
+//     const windowHeight = window.innerHeight;
+//     const elementTop = heroTextItem.getBoundingClientRect().top;
+//     const elementHeight = heroTextItem.getBoundingClientRect().height;
+
+//     // Calculate how far the element is within the viewport
+//     let scrollPercentage = (windowHeight - elementTop) / windowHeight;
+
+//     // Clamp the scroll percentage between 0 and 1
+//     scrollPercentage = Math.min(Math.max(scrollPercentage, 0), 1);
+
+//     // Use the scroll percentage to control the highlight from 0% to 100%
+//     const backgroundPosition = 100 - (scrollPercentage * 180); // Move from 100 to 0
+//     textElement.style.backgroundPosition = `${backgroundPosition}% 0`;
+// });
+
 document.addEventListener('scroll', function() {
     const heroTextItem = document.querySelector('.hero-txt-item-4');
     const textElement = heroTextItem.querySelector('.highlight-text');
+
+    // Check the current opacity of the hero text item
+    const heroOpacity = parseFloat(window.getComputedStyle(heroTextItem).opacity);
+    
+    // If opacity is 0 or less, set background position to -2% and exit
+    if (heroOpacity <= 0.5) {
+        textElement.style.backgroundPosition = '-2% 0'; // Keep constant at -2%
+        return;
+    }
+
+    // If opacity is greater than 0, start calculating background position
     const windowHeight = window.innerHeight;
     const elementTop = heroTextItem.getBoundingClientRect().top;
     const elementHeight = heroTextItem.getBoundingClientRect().height;
@@ -1397,10 +1452,13 @@ document.addEventListener('scroll', function() {
     // Clamp the scroll percentage between 0 and 1
     scrollPercentage = Math.min(Math.max(scrollPercentage, 0), 1);
 
-    // Use the scroll percentage to control the highlight speed
-    const backgroundPosition = 100 - (scrollPercentage * 180); // Change start to 100 for left to right
+    // Adjust the background position to start from -2% and end at -100%
+    const startPosition = -2; // Start at -2%
+    const endPosition = -100; // End at -100%
+    const backgroundPosition = startPosition + (scrollPercentage * (endPosition - startPosition));
     textElement.style.backgroundPosition = `${backgroundPosition}% 0`;
 });
+
 
 </script>
 
