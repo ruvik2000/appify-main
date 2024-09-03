@@ -4257,7 +4257,15 @@ button:hover {
   background-position: 100%; /* Start off-screen */
 }
 
-
+.highlight-text {
+  background-image: linear-gradient(to right, white 100%, transparent 0);
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  background-size: 200% 100%;
+  background-position: 100% 0; /* Start from the right */
+  transition: background-position 1s ease; /* Smooth transition */
+}
 
 @media (max-width: 768px) {
   .hero-headline-m {
