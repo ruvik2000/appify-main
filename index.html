@@ -1398,7 +1398,7 @@ document.addEventListener('scroll', function() {
     scrollPercentage = Math.min(Math.max(scrollPercentage, 0), 1);
 
     // Use the scroll percentage to control the highlight speed
-    const backgroundPosition = -80 + (scrollPercentage * 180); // Faster transition based on scroll
+    const backgroundPosition = 100 - (scrollPercentage * 180); // Change start to 100 for left to right
     textElement.style.backgroundPosition = `${backgroundPosition}% 0`;
 });
 
